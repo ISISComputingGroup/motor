@@ -93,3 +93,21 @@ record(calc, "$(P)$(M):USING_ENCODER") {
     # Bitwise AND on MSTA to select the "encoder present" flag.
     field(CALC, "((A&256)=256)&&B")
 }
+
+record(bo, "$(P)$(M):SAFE_STUP") {
+  field(FLNK, "$(P)$(M):_SAFE_STUP.PROC")
+}
+
+record(calcout, "$(P)$(M):_SAFE_STUP") {
+  field(DTYP, "Soft Channel")
+  field(DESC, "Force Poll of motor position")
+  field(INPA, "$(P)$(M).MOVN")
+  field(INPB, "$(P)$(M).DMOV")
+  field(INPC, "$(P)$(M).HOMF")
+  field(INPD, "$(P)$(M).HOMR")
+  field(INPE, "$(P)$(M).JOGF")
+  field(INPF, "$(P)$(M).JOGR")
+  field(CALC, "(A=0)&&(B=1)&&(C=0)&&(D=0)&&(E=0)&&(F=0)")
+  field(OOPT, "When Non-zero")
+  field(OUT, "$(P)$(M).STUP PP")
+}
