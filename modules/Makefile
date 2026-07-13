@@ -10,7 +10,10 @@ SUBMODULES += motorAcs
 #SUBMODULES += motorAcsMotion
 #SUBMODULES += motorAcsTech80
 SUBMODULES += motorAerotech
-SUBMODULES += motorAttocube
+## comment out as breaks if we update to tip of branch. This is due to 
+## https://github.com/attocube-systems/AMC-APIs changing the name of the DLL from
+## attocubejson.dll to libattoAMC-1.0.0.dll
+#SUBMODULES += motorAttocube
 SUBMODULES += motorDeltaTau
 SUBMODULES += motorFaulhaber
 ifdef IPAC
